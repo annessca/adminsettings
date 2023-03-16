@@ -45,7 +45,12 @@
 			</div>
 
 		<header id="header" class="site-header">
-			<?php the_custom_logo(); ?>
+		<?php $og_custom_options = get_option('theme_og_custom_options'); ?>
+			<?php if ( $og_custom_options['logo'] != '' ): ?>
+				<div id="logo">
+					<img src="<?php echo $og_custom_options['logo']; ?>" />
+				</div>
+			<?php  endif; ?>
 			<h1 class="logo"><a href="<?php echo esc_url(home_url( '/' )); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
 			<nav id="main-nav" class="main-navigation">
 				<?php
